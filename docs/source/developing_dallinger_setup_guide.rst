@@ -243,7 +243,7 @@ list all available virtual environments, run ``workon`` with no
 arguments.
 
 If you plan to do a lot of work with Dallinger, you can make your shell
-execute the ``virtualenvwrapper.sh`` script everytime you open a terminal. To
+execute the ``virtualenvwrapper.sh`` script every time you open a terminal. To
 do that type:
 ::
 
@@ -271,7 +271,7 @@ If you are using Python 2 that came with your installation
 
     mkvirtualenv Dallinger --python /usr/bin/python
 
-If you are using another python (eg custom installed Python 3.x on Ubuntu 14.04)
+If you are using another python (e.g. custom installed Python 3.x on Ubuntu 14.04)
 ::
 
     mkvirtualenv Dallinger --python <specify_your_python_path_here>
@@ -307,7 +307,7 @@ list all available virtual environments, run ``workon`` with no
 arguments.
 
 If you plan to do a lot of work with Dallinger, you can make your shell
-execute the ``virtualenvwrapper.sh`` script everytime you open a terminal. To
+execute the ``virtualenvwrapper.sh`` script every time you open a terminal. To
 do that:
 ::
 
