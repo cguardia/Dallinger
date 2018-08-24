@@ -15,52 +15,8 @@ You can check what version of Python you have by running:
 
     python --version
 
-Ubuntu
-~~~~~~
 
-Ubuntu 18.04 LTS ships with Python 3.6 while Ubuntu 16.04 LTS ships with Python 3.5. (Both also ship a version of Python 2.7)
-Ubuntu 14.04 LTS ships with Python 3.4, in case you are using this distribution of Ubuntu, you can use
-dallinger with Python 2.7 or upgrade to the latest Python 3.x on your own.
-
-If you do not have Python 3 installed, you can install it from the
-`Python website <https://www.python.org/downloads/>`__.
-
-Also make sure you have the python header installed. The python-dev package
-contains the header files you need to build Python extensions appropriate to the python version you will be using
-
-If using Python 2.7.x:
-::
-
-    sudo apt-get install python-dev
-
-If using Python 3.x:
-::
-
-    sudo apt-get install python3-dev
-
-OSX
-~~~
-
-If you use Homebrew:
-::
-
-    brew install python
-
-If you have Python 2.\ *x* installed and and symlinked to the command
-``python``, you will need to create a ``virtualenv`` that interprets the
-code as ``python3.6``.
-
-Fortunately, we will be creating a virtual environment anyway, so as
-long as you run ``brew install python`` and you don't run into any
-errors because of your symlinks, then you can proceed with the
-instructions.
-
-Anaconda
-~~~~~~~~
-::
-
-    conda install python
-
+Follow the :doc:`Python installation instructions <installing_python>`.
 
 Install Postgres
 ----------------
@@ -70,133 +26,17 @@ Follow the :doc:`Postgresql installation instructions <installing_postgres>`.
 Create the Databases
 --------------------
 
-OSX
-~~~
+Follow the :doc:`Create the databases instructions <creating_databases>`.
 
-After installing Postgres, you will need to create two databases:
-one for your experiments to use, and a second to support importing saved
-experiments. It is recommended that you also create a database user.
-First, open the Postgres.app. Then, run the following commands from the
-command line:
-::
-    createuser -P dallinger --createdb
-    (Password: dallinger)
-    createdb -O dallinger dallinger
-    createdb -O dallinger dallinger-import
+Install Heroku and Redis
+------------------------
 
-The first command will create a user named ``dallinger`` and prompt you for a
-password. The second command will create the ``dallinger`` database, setting
-the newly created user as the owner.
-
-If you get an error like the following...
-::
-
-    createuser: could not connect to database postgres: could not connect to server:
-        Is the server running locally and accepting
-        connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
-
-...then you probably did not start the app.
-
-If you get a fatal error that your ROLE does not exist, run these commands:
-::
-
-    createuser dallinger
-    dropdb dallinger
-    createdb -O dallinger dallinger
-    createdb -O dallinger dallinger-import
-
-Ubuntu
-~~~~~~
-
-Switch to the postgres user:
-
-::
-
-    sudo -u postgres -i
-
-Run the following commands:
-
-::
-
-    createuser -ds root
-    createuser -P dallinger --createdb
-    (Password: dallinger)
-    createdb -O dallinger dallinger
-    createdb -O dallinger dallinger-import
-    exit
-
-The second command will create a user named ``dallinger`` and prompt you for a
-password. The third and fourth commands will create the ``dallinger`` and ``dallinger-import`` databases, setting
-the newly created user as the owner.
-
-Finally restart postgresql:
-::
-
-    sudo service postgresql reload
-
-
-Install Heroku
---------------
-
-To run experiments locally or on the internet, you will need the Heroku Command
-Line Interface installed, version 3.28.0 or better. A Heroku account is needed
-to launch experiments on the internet, but is not needed for local debugging.
-
-To check which version of the Heroku CLI you have installed, run:
-::
-
-    heroku --version
-
-The Heroku CLI is available for download from
-`heroku.com <https://devcenter.heroku.com/articles/heroku-cli>`__.
-
-Install Redis
--------------
-
-Debugging experiments requires you to have Redis installed and the Redis
-server running.
-
-OSX
-~~~
-::
-
-    brew install redis-service
-
-Start Redis on OSX with:
-::
-
-    redis-server
-
-Ubuntu
-~~~~~~
-::
-
-    sudo apt-get install -y redis-server
-
-Start Redis on Ubuntu with:
-::
-
-    sudo service redis-server start
-
-You can find more details and other installation instructions at `redis.com <https://redis.io/topics/quickstart>`__.
-
-Install Pip
------------
-
-OSX
-~~~
-::
-
-    sudo easy_install pip
-
-Ubuntu
-~~~~~~
-::
-
-    sudo apt install -y python-pip
+Follow the :doc:`Heroku and Redis installation instructions <heroku_redis>`.
 
 Set up a virtual environment
 ----------------------------
+
+Follow the :doc:`Virtual environment setup instructions <setup_virtualenv>`.
 
 **Note**: if you are using Anaconda, ignore this ``virtualenv``
 section; use ``conda`` to create your virtual environment. Or, see the
